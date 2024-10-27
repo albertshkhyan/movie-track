@@ -1,0 +1,74 @@
+{
+  "movies": [
+    {
+      "id": "1",
+      "title": "The Godfather",
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his empire to his reluctant son.",
+      "genre": "Crime",
+      "releaseYear": 1972
+    },
+    {
+      "id": "2",
+      "title": "Inception",
+      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given a chance to erase his criminal history.",
+      "genre": "Science Fiction",
+      "releaseYear": 2010
+    },
+    {
+      "id": "3",
+      "title": "The Dark Knight",
+      "description": "Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+      "genre": "Action",
+      "releaseYear": 2008
+    },
+    {
+      "id": "4",
+      "title": "Forrest Gump",
+      "description": "The life story of a man with low intelligence and his extraordinary journey through historic moments in American history.",
+      "genre": "Drama",
+      "releaseYear": 1994
+    },
+    {
+      "id": "5",
+      "title": "The Matrix",
+      "description": "A hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+      "genre": "Science Fiction",
+      "releaseYear": 1999
+    },
+    {
+      "id": "6",
+      "title": "Pulp Fiction",
+      "description": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+      "genre": "Crime",
+      "releaseYear": 1994
+    },
+    {
+      "id": "7",
+      "title": "The Shawshank Redemption",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+      "genre": "Drama",
+      "releaseYear": 1994
+    },
+    {
+      "id": "8",
+      "title": "Gladiator",
+      "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+      "genre": "Action",
+      "releaseYear": 2000
+    },
+    {
+      "id": "9",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth.",
+      "genre": "Fantasy",
+      "releaseYear": 2001
+    },
+    {
+      "id": "10",
+      "title": "Schindler's List",
+      "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+      "genre": "History",
+      "releaseYear": 1993
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  title: Movie API
+  description: API for managing movies
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001/api   # Placeholder, will be replaced at runtime
+
+paths:
+  /movies:
+    get:
+      summary: Get all movies
+      description: Retrieve a list of movies, optionally filtering by title.
+      parameters:
+        - in: query
+          name: title
+          required: false
+          schema:
+            type: string
+          description: Optional title to filter the movies by
+      responses:
+        '200':
+          description: List of movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Movie'
+    post:
+      summary: Add a new movie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMovieDto'
+      responses:
+        '201':
+          description: Movie created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+
+  /movies/{id}:
+    get:
+      summary: Get movie by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the movie to retrieve
+      responses:
+        '200':
+          description: Movie found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+        '404':
+          description: Movie not found
+    put:
+      summary: Update a movie by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the movie to update
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMovieDto'
+      responses:
+        '200':
+          description: Movie updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Movie'
+        '404':
+          description: Movie not found
+    delete:
+      summary: Delete a movie by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID of the movie to delete
+      responses:
+        '200':
+          description: Movie deleted
+        '404':
+          description: Movie not found
+
+components:
+  schemas:
+    Movie:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        releaseYear:
+          type: integer
+        genre:
+          type: string
+    CreateMovieDto:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        releaseYear:
+          type: integer
+        genre:
+          type: string
