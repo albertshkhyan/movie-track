@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/docs',
-        destination: '/api/docs',
+        destination: `${process.env.NEXT_PUBLIC_API_URL}/api/docs`,
       },
     ];
   },
