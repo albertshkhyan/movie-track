@@ -1,4 +1,4 @@
-Here's a `README.md` for the root of the `movietrack` project, including a relative link to the test-specific `README.md` that will work both locally and on GitHub.
+Here’s the updated `README.md` with the image links for Swagger and site previews:
 
 ---
 
@@ -12,6 +12,10 @@ The `movietrack` project includes the following components:
 - **Frontend**: React-based UI using Next.js for server-side rendering, Styled Components for styling, and Jest for testing.
 - **Backend**: API endpoints using Next.js API routes with a structured service and repository layer for movie data.
 - **Shared Components**: Reusable UI elements and utilities shared across the application.
+
+![Swagger Preview](https://i.postimg.cc/BbB12390/i-Screen-Shoter-Google-Chrome-241028015617.jpg)
+
+![Site Preview](https://i.postimg.cc/pVfjwf96/i-Screen-Shoter-Google-Chrome-241028015638.jpg)
 
 ## Table of Contents
 
@@ -39,8 +43,8 @@ The `movietrack` project includes the following components:
    ```
 
 3. **Set Up Environment Variables**:
-    - Duplicate `.env.example` and rename it to `.env`.
-    - Adjust environment variables as needed.
+   - Duplicate `.env.example` and rename it to `.env`.
+   - Adjust environment variables as needed.
 
 ## Running the Application
 
