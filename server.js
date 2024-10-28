@@ -46,6 +46,15 @@ app.prepare().then(() => {
   );
 
   // Set up Swagger documentation route
+  const swaggerDocument = YAML.load(
+    path.join(__dirname, 'src/docs/swagger.yaml')
+  );
+  swaggerDocument.servers = [
+    {
+      url: process.env.BASE_URL + '/api',
+      description: 'Production Server',
+    },
+  ];
   server.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
   // Define sample route for health check
