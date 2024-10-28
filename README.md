@@ -1,8 +1,10 @@
-Here’s the updated `README.md` with the image links for Swagger and site previews:
+Here's the updated `README.md` with the Vercel deployment URL added at the very top for easy access:
 
 ---
 
 # MovieTrack Project
+
+[**Live Application on Vercel**](https://movie-track-seven.vercel.app/)
 
 The `movietrack` project is a movie management application designed to handle movie data through a combination of frontend and backend services. This project utilizes a modular structure, organized to separate frontend, backend, and shared components, ensuring clear responsibility areas.
 
@@ -21,6 +23,7 @@ The `movietrack` project includes the following components:
 
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
+- [Using Docker](#using-docker)
 - [Project Structure](#project-structure)
 - [Scripts](#scripts)
 - [Testing](#testing)
@@ -43,8 +46,86 @@ The `movietrack` project includes the following components:
    ```
 
 3. **Set Up Environment Variables**:
-   - Duplicate `.env.example` and rename it to `.env`.
-   - Adjust environment variables as needed.
+
+    - Create environment files as needed for different environments:
+        - `.env.development` for development.
+        - `.env.production` for production.
+        - `.env.local` for machine-specific overrides (not committed to version control).
+
+    - **Example of `.env.development`**:
+      ```plaintext
+      # Server Configuration
+      API_PORT=3001
+      BASE_URL=http://localhost:3001
+      NEXT_PUBLIC_API_URL=http://localhost:3001
+      VERCEL_URL=
+ 
+      # Database Configuration
+      DB_HOST=localhost
+      DB_PORT=5432
+      DB_USER=dev_db_user
+      DB_PASSWORD=dev_db_password
+      DB_NAME=dev_db_name
+ 
+      # Logging and Environment
+      LOG_LEVEL=debug
+      NODE_ENV=development
+ 
+      # Application Settings
+      GENERATE_INITIAL_DATA=true
+      ```
+
+    - **Example of `.env.production`**:
+      ```plaintext
+      # Server Configuration
+      API_PORT=80
+      BASE_URL=https://movie-track-seven.vercel.app
+      NEXT_PUBLIC_API_URL=https://movie-track-seven.vercel.app
+      VERCEL_URL=movie-track-seven.vercel.app
+ 
+      # Database Configuration
+      DB_HOST=prod-db-hostname
+      DB_PORT=5432
+      DB_USER=prod_db_user
+      DB_PASSWORD=prod_db_password
+      DB_NAME=prod_db_name
+ 
+      # Logging and Environment
+      LOG_LEVEL=error
+      NODE_ENV=production
+ 
+      # Application Settings
+      GENERATE_INITIAL_DATA=false
+      ```
+
+    - **Example of `.env.local`** (for local machine-specific overrides):
+      ```plaintext
+      # Server Configuration
+      API_PORT=3001
+      BASE_URL=http://localhost:3001
+      NEXT_PUBLIC_API_URL=http://localhost:3001
+ 
+      # Database Configuration (local credentials)
+      DB_HOST=localhost
+      DB_PORT=5432
+      DB_USER=local_db_user
+      DB_PASSWORD=local_db_password
+      DB_NAME=local_db_name
+ 
+      # Logging and Environment
+      LOG_LEVEL=debug
+      NODE_ENV=development
+ 
+      # Application Settings
+      GENERATE_INITIAL_DATA=true
+      ```
+
+    - Environment Variable Notes:
+        - **`NEXT_PUBLIC_API_URL`**: Exposed to the client-side, accessible within frontend code.
+        - **Sensitive Variables**: Keep variables like `DB_PASSWORD` server-only (i.e., without the `NEXT_PUBLIC_` prefix) to avoid exposing them on the client side.
+        - **Vercel Deployment**: When deploying to Vercel, configure production variables through the Vercel dashboard to avoid committing sensitive information.
+
+---
 
 ## Running the Application
 
@@ -70,6 +151,56 @@ This command starts both the frontend and backend in development mode, allowing 
    npm start
    ```
 
+## Using Docker
+
+You can also use Docker to containerize and run the `movietrack` project. Below are the steps for building and running the Docker container:
+
+### Step 1: Build the Docker Image
+
+Run the following command to build the Docker image for the `movietrack` application:
+
+```bash
+docker build -t movietrack-app .
+```
+
+This command reads the instructions in the `Dockerfile`, installs dependencies, and builds the project, creating a Docker image named `movietrack-app`.
+
+### Step 2: Run the Docker Container
+
+After building the Docker image, start a container from this image using:
+
+```bash
+docker run -p 3000:3000 movietrack-app
+```
+
+- **Explanation**: The `-p 3000:3000` flag maps port 3000 on your local machine to port 3000 in the container, making the application accessible at `http://localhost:3000`.
+
+### Step 3: Verify the Application
+
+Open your browser and go to:
+
+- **Local Development**: `http://localhost:3000`
+- **Production (Vercel)**: [https://movie-track-seven.vercel.app/](https://movie-track-seven.vercel.app/)
+
+You should see the application running. If not, check the Docker container logs to troubleshoot.
+
+### Step 4: Stop and Remove the Container (Optional)
+
+When you’re done testing locally, stop and remove the Docker container with the following commands:
+
+1. List the running containers and find the container ID:
+
+   ```bash
+   docker ps
+   ```
+
+2. Stop and remove the container:
+
+   ```bash
+   docker stop [container_id]
+   docker rm [container_id]
+   ```
+
 ## Project Structure
 
 The `src` directory is organized as follows:
@@ -88,36 +219,6 @@ src
 
 ## Scripts
 
-The `package.json` file includes various scripts to streamline the development process:
-
-- **`npm run dev`**: Run the application in development mode.
-- **`npm run build`**: Build the application for production.
-- **`npm run start`**: Start the production server.
-- **`npm run lint`**: Lint codebase with ESLint.
-- **`npm run format`**: Format code using Prettier.
-- **`npm run test`**: Run all tests.
-- **`npm run test:unit`**: Run only unit tests.
-- **`npm run test:integration`**: Run only integration tests.
-- **`npm run test:e2e`**: Run only end-to-end tests.
-
-## Testing
-
-The `movietrack` project includes a comprehensive suite of tests covering unit, integration, and end-to-end (E2E) scenarios. Tests are organized by type within the `src/tests` folder.
-
-For more details on the testing structure and specific instructions, please refer to the [Testing README](src/tests/README.md).
-
-## Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Submit a pull request with a clear description of the changes.
-
-## License
-
-This project is licensed under the MIT License.
-
 ---
 
-This `README.md` serves as an overview of the `movietrack` project, including instructions for installation, running, and testing. For more specific details about the testing setup, refer to the linked [Testing README](src/tests/README.md).
+With the Vercel link at the top, it’s now easily accessible for anyone reading the README. Let me know if there’s anything else to modify!
