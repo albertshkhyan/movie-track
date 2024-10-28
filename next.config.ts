@@ -9,6 +9,31 @@ const envFile =
 dotenv.config({ path: envFile });
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: '/api/:path*', // Apply CORS to all routes under /api
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Authorization',
+          },
+          {
+            key: 'Access-Control-Allow-Credentials',
+            value: 'true',
+          },
+        ],
+      },
+    ];
+  },
   crossOrigin: 'anonymous',
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
@@ -19,14 +44,7 @@ const nextConfig: NextConfig = {
     GENERATE_INITIAL_DATA: process.env.GENERATE_INITIAL_DATA,
     CUSTOM_LOCAL_SETTING: process.env.CUSTOM_LOCAL_SETTING,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/docs',
-        destination: `${process.env.BASE_URL}/api/docs`,
-      },
-    ];
-  },
+
   compiler: {
     styledComponents: {
       ssr: true,

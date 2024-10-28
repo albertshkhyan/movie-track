@@ -11,6 +11,7 @@ The `movietrack` project is a movie management application designed to handle mo
 ## Project Overview
 
 The `movietrack` project includes the following components:
+
 - **Frontend**: React-based UI using Next.js for server-side rendering, Styled Components for styling, and Jest for testing.
 - **Backend**: API endpoints using Next.js API routes with a structured service and repository layer for movie data.
 - **Shared Components**: Reusable UI elements and utilities shared across the application.
@@ -35,95 +36,101 @@ The `movietrack` project includes the following components:
 ## Installation
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/your-username/movietrack.git
    cd movietrack
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Set Up Environment Variables**:
 
-    - Create environment files as needed for different environments:
-        - `.env.development` for development.
-        - `.env.production` for production.
-        - `.env.local` for machine-specific overrides (not committed to version control).
+   - Create environment files as needed for different environments:
 
-    - **Example of `.env.development`**:
-      ```plaintext
-      # Server Configuration
-      API_PORT=3001
-      BASE_URL=http://localhost:3001
-      NEXT_PUBLIC_API_URL=http://localhost:3001
-      VERCEL_URL=
- 
-      # Database Configuration
-      DB_HOST=localhost
-      DB_PORT=5432
-      DB_USER=dev_db_user
-      DB_PASSWORD=dev_db_password
-      DB_NAME=dev_db_name
- 
-      # Logging and Environment
-      LOG_LEVEL=debug
-      NODE_ENV=development
- 
-      # Application Settings
-      GENERATE_INITIAL_DATA=true
-      ```
+      - `.env.development` for development.
+      - `.env.production` for production.
+      - `.env.local` for machine-specific overrides (not committed to version control).
 
-    - **Example of `.env.production`**:
-      ```plaintext
-      # Server Configuration
-      API_PORT=80
-      BASE_URL=https://movie-track-seven.vercel.app
-      NEXT_PUBLIC_API_URL=https://movie-track-seven.vercel.app
-      VERCEL_URL=movie-track-seven.vercel.app
- 
-      # Database Configuration
-      DB_HOST=prod-db-hostname
-      DB_PORT=5432
-      DB_USER=prod_db_user
-      DB_PASSWORD=prod_db_password
-      DB_NAME=prod_db_name
- 
-      # Logging and Environment
-      LOG_LEVEL=error
-      NODE_ENV=production
- 
-      # Application Settings
-      GENERATE_INITIAL_DATA=false
-      ```
+   - **Example of `.env.development`**:
 
-    - **Example of `.env.local`** (for local machine-specific overrides):
-      ```plaintext
-      # Server Configuration
-      API_PORT=3001
-      BASE_URL=http://localhost:3001
-      NEXT_PUBLIC_API_URL=http://localhost:3001
- 
-      # Database Configuration (local credentials)
-      DB_HOST=localhost
-      DB_PORT=5432
-      DB_USER=local_db_user
-      DB_PASSWORD=local_db_password
-      DB_NAME=local_db_name
- 
-      # Logging and Environment
-      LOG_LEVEL=debug
-      NODE_ENV=development
- 
-      # Application Settings
-      GENERATE_INITIAL_DATA=true
-      ```
+     ```plaintext
+     # Server Configuration
+     API_PORT=3000
+     BASE_URL=http://localhost:3000
+     NEXT_PUBLIC_API_URL=http://localhost:3000
+     VERCEL_URL=
 
-    - Environment Variable Notes:
-        - **`NEXT_PUBLIC_API_URL`**: Exposed to the client-side, accessible within frontend code.
-        - **Sensitive Variables**: Keep variables like `DB_PASSWORD` server-only (i.e., without the `NEXT_PUBLIC_` prefix) to avoid exposing them on the client side.
-        - **Vercel Deployment**: When deploying to Vercel, configure production variables through the Vercel dashboard to avoid committing sensitive information.
+     # Database Configuration
+     DB_HOST=localhost
+     DB_PORT=5432
+     DB_USER=dev_db_user
+     DB_PASSWORD=dev_db_password
+     DB_NAME=dev_db_name
+
+     # Logging and Environment
+     LOG_LEVEL=debug
+     NODE_ENV=development
+
+     # Application Settings
+     GENERATE_INITIAL_DATA=true
+     ```
+
+   - **Example of `.env.production`**:
+
+     ```plaintext
+     # Server Configuration
+     API_PORT=80
+     BASE_URL=https://movie-track-seven.vercel.app
+     NEXT_PUBLIC_API_URL=https://movie-track-seven.vercel.app
+     VERCEL_URL=movie-track-seven.vercel.app
+
+     # Database Configuration
+     DB_HOST=prod-db-hostname
+     DB_PORT=5432
+     DB_USER=prod_db_user
+     DB_PASSWORD=prod_db_password
+     DB_NAME=prod_db_name
+
+     # Logging and Environment
+     LOG_LEVEL=error
+     NODE_ENV=production
+
+     # Application Settings
+     GENERATE_INITIAL_DATA=false
+     ```
+
+   - **Example of `.env.local`** (for local machine-specific overrides):
+
+     ```plaintext
+     # Server Configuration
+     API_PORT=3001
+     BASE_URL=http://localhost:3001
+     NEXT_PUBLIC_API_URL=http://localhost:3001
+
+     # Database Configuration (local credentials)
+     DB_HOST=localhost
+     DB_PORT=5432
+     DB_USER=local_db_user
+     DB_PASSWORD=local_db_password
+     DB_NAME=local_db_name
+
+     # Logging and Environment
+     LOG_LEVEL=debug
+     NODE_ENV=development
+
+     # Application Settings
+     GENERATE_INITIAL_DATA=true
+     ```
+
+   - Environment Variable Notes:
+      - **`NEXT_PUBLIC_API_URL`**: Exposed to the client-side, accessible within frontend code.
+      - **Sensitive Variables**: Keep variables like `DB_PASSWORD` server-only (i.e., without the `NEXT_PUBLIC_` prefix) to avoid exposing them on the client side.
+      - **Vercel Deployment**: When deploying to Vercel, configure production variables through the Vercel dashboard to avoid committing sensitive information.
 
 ---
 
@@ -142,6 +149,7 @@ This command starts both the frontend and backend in development mode, allowing 
 ### Build and Production
 
 1. **Build the Project**:
+
    ```bash
    npm run build
    ```

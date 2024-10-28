@@ -4,10 +4,11 @@ info:
   description: API for managing movies
   version: 1.0.0
 servers:
-  - url: https://movie-track-seven.vercel.app/api   # Production Vercel URL
+  - url: http://localhost:3000/api # Development Server
+    description: Development Server
+  - url: https://movie-track-seven.vercel.app/api # Production Vercel URL
     description: Production Server
-  - url: http://localhost:3002/api   # Local Development Server
-    description: Local Server
+
 
 paths:
   /movies:
