@@ -4,7 +4,7 @@ info:
   description: API for managing movies
   version: 1.0.0
 servers:
-  - url: http://localhost:3001/api   # Placeholder, will be replaced at runtime
+  - url: http://localhost:3002/api   # Placeholder, will be replaced at runtime
 
 paths:
   /movies:
