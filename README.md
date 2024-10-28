@@ -11,7 +11,6 @@ The `movietrack` project is a movie management application designed to handle mo
 ## Project Overview
 
 The `movietrack` project includes the following components:
-
 - **Frontend**: React-based UI using Next.js for server-side rendering, Styled Components for styling, and Jest for testing.
 - **Backend**: API endpoints using Next.js API routes with a structured service and repository layer for movie data.
 - **Shared Components**: Reusable UI elements and utilities shared across the application.
@@ -36,14 +35,12 @@ The `movietrack` project includes the following components:
 ## Installation
 
 1. **Clone the Repository**:
-
    ```bash
    git clone https://github.com/your-username/movietrack.git
    cd movietrack
    ```
 
 2. **Install Dependencies**:
-
    ```bash
    npm install
    ```
@@ -51,13 +48,11 @@ The `movietrack` project includes the following components:
 3. **Set Up Environment Variables**:
 
    - Create environment files as needed for different environments:
-
       - `.env.development` for development.
       - `.env.production` for production.
       - `.env.local` for machine-specific overrides (not committed to version control).
 
    - **Example of `.env.development`**:
-
      ```plaintext
      # Server Configuration
      API_PORT=3000
@@ -81,7 +76,6 @@ The `movietrack` project includes the following components:
      ```
 
    - **Example of `.env.production`**:
-
      ```plaintext
      # Server Configuration
      API_PORT=80
@@ -105,12 +99,11 @@ The `movietrack` project includes the following components:
      ```
 
    - **Example of `.env.local`** (for local machine-specific overrides):
-
      ```plaintext
      # Server Configuration
-     API_PORT=3001
-     BASE_URL=http://localhost:3001
-     NEXT_PUBLIC_API_URL=http://localhost:3001
+     API_PORT=3000
+     BASE_URL=http://localhost:3000
+     NEXT_PUBLIC_API_URL=http://localhost:3000
 
      # Database Configuration (local credentials)
      DB_HOST=localhost
@@ -149,7 +142,6 @@ This command starts both the frontend and backend in development mode, allowing 
 ### Build and Production
 
 1. **Build the Project**:
-
    ```bash
    npm run build
    ```
